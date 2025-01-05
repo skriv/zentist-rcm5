@@ -74,6 +74,7 @@ $(".slider-main_component").each(function () {
       enabled: false,
       onlyInViewport: false,
     },
+    touchMove: false,
     breakpoints: {
       480: { slidesPerView: 1, spaceBetween: "4%" },
       768: { slidesPerView: 2, spaceBetween: "4%" },
