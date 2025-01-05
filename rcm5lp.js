@@ -11,11 +11,12 @@ var CAMPUS = $('form[data-commerce-product-id="6778a1a71ac6cc156adc2e47"]');
 var buttonInOnlineForm = ONLINE.find('a[data-node-type="commerce-buy-now-button"]');
 var buttonInCampusForm = CAMPUS.find('a[data-node-type="commerce-buy-now-button"]'); 
 
-ticketName();
+
 
 $(document).ready(function () {
   console.log("RCM5 is ready");
   countDown("js-clock", deadline);
+  ticketName();
   addAttendeeRows(1);
   players();
 });
@@ -47,6 +48,10 @@ function players() {
                     otherPlayer.pause();
                 }
             });
+        });
+
+        player.on('seeked', () => {
+            console.log(`Video ${index} перемотано на ${player.currentTime()} секунд`);
         });
     });
 }
