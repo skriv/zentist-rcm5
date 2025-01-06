@@ -61,6 +61,11 @@ const swiper = new Swiper('.swiper', {
     slidesPerView: 1.5, // Видимые слайды
     spaceBetween: 32,
     speed: 400,
+    breakpoints: {
+        480: { slidesPerView: 1, spaceBetween: "4%" },
+        768: { slidesPerView: 2, spaceBetween: "4%" },
+        992: { slidesPerView: 1.5, spaceBetween: 32 },
+      },
     navigation: {
         nextEl: ".swiper-next",
         prevEl: ".swiper-prev",
