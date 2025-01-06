@@ -58,7 +58,7 @@ loadYouTubeAPI();
 const swiper = new Swiper('.swiper', {
     loop: false,
     centeredSlides: true, // Центрирование активного слайда
-    slidesPerView: 1.5, // Видимые слайды
+    // slidesPerView: 1.5, // Видимые слайды
     spaceBetween: 32,
     speed: 400,
     breakpoints: {
