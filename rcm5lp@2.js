@@ -12,6 +12,8 @@ var selectSponsor = $("#select-sponsor");
 $("#other-dso").hide();
 selectSponsor.hide();
 $(".other-wrapper").hide();
+$("#locationswrapper").hide();
+
 
 
 var buttonInOnlineForm = ONLINE.find(
@@ -156,14 +158,14 @@ function addAttendeeRows(quantity) {
 //
 $("input[name='Radio']").change(function () {
   var selectedValue = $("input[name='Radio']:checked").val();
-  var isDSO = selectedValue === "DSO";
+  var isDSO = selectedValue === "DSO/Dental Group";
   var isVendor = selectedValue === "Vendor";
   var isOther = selectedValue === "Other";
   var isSponsor = selectedValue === "Sponsor";
 
   // Hide elements and reset properties
-  $(".other-wrapper, #other-dso, #select-sponsor").hide();
-  $("#other-dso, #select-sponsor").prop("required", false);
+  $(".other-wrapper, #other-dso, #select-sponsor, #locationswrapper").hide();
+  $("#other-dso, #select-sponsor, #locations").prop("required", false);
 
   // Handle specific cases
   if (isOther) {
@@ -173,6 +175,10 @@ $("input[name='Radio']").change(function () {
   if (isSponsor) {
     selectSponsor.prop("required", true).focus();
     selectSponsor.show();
+  }
+  if (isDSO){
+    $("#locationswrapper").show();
+    $("#locations").prop("required", true).focus();
   }
 
   if (isDSO || isSponsor) {
