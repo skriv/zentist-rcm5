@@ -8,7 +8,19 @@ let swiper;
 let typeTicket = $("input[name='Type']");
 let campusSelect = true;
 let dsoSelect = true;
-var selectSponsor = $("#select-sponsor");
+let selectedValue;
+
+
+let selectSponsorWrapper = $("#sponsor-wrapper").hide();
+let selectSponsor = $("#select-sponsor").hide();
+
+let otherWrapper = $("#other-wrapper").hide();
+let otherDSO = $("#other-dso").hide();
+
+let locationsWrapper = $("#locationswrapper").hide();
+let locations = $("#locations").hide();
+
+
 
 let allAttendeeData;
 let organizationName;
@@ -18,10 +30,6 @@ let attendeesActivity;
 // Создаем переменную с нужным форматом
 let formattedData;
 
-$("#other-dso").hide();
-selectSponsor.hide();
-$(".other-wrapper").hide();
-$("#locationswrapper").hide();
 
 
 
@@ -39,12 +47,6 @@ $(document).ready(function () {
   addAttendeeRows(1); // Добавляем одну строку при загрузке страницы
   countdown();
 });
-
-
-
-
-
-
 
 
 //
@@ -209,7 +211,7 @@ function collectAttendeeData(){
 // ----------- SELECT TYPE OF CATEGORY  ----------- //
 //
 $("input[name='Radio']").change(function () {
-  var selectedValue = $("input[name='Radio']:checked").val();
+  selectedValue = $("input[name='Radio']:checked").val();
   var isDSO = selectedValue === "DSO/Dental Group";
   var isVendor = selectedValue === "Vendor";
   var isOther = selectedValue === "Other";
@@ -217,20 +219,30 @@ $("input[name='Radio']").change(function () {
 
   // Hide elements and reset properties
   $(".other-wrapper, #other-dso, #select-sponsor, #locationswrapper").hide();
-  $("#other-dso, #select-sponsor, #locations").prop("required", false);
+
+  selectSponsorWrapper.hide();
+  otherWrapper.hide()
+  locationsWrapper.hide();
+
+  otherDSO.prop("required", false);
+  selectSponsor.prop("required", false);
+  locations.prop("required", false);
 
   // Handle specific cases
   if (isOther) {
-    $(".other-wrapper, #other-dso").show();
-    $("#other-dso").prop("required", true).focus();
+    otherWrapper.show();
+    otherDSO.show();
+    otherDSO.prop("required", true).focus();
   }
   if (isSponsor) {
-    selectSponsor.prop("required", true).focus();
+    selectSponsorWrapper.show();
     selectSponsor.show();
+    selectSponsor.prop("required", true).focus();
   }
   if (isDSO){
-    $("#locationswrapper").show();
-    $("#locations").prop("required", true).focus();
+    locationsWrapper.show();
+    locations.show();
+    locations.prop("required", true).focus();
   }
 
   if (isDSO || isSponsor) {
@@ -273,7 +285,8 @@ function setCookies(){
     org: organizationName,
     locations: DSOcount,
     info: allAttendeeData,
-    preEvent:attendeesActivity
+    preEvent:attendeesActivity,
+    type:selectedValue
   };
 
   for (const [key, value] of Object.entries(cookieData)) {

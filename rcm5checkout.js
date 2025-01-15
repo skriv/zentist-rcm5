@@ -15,5 +15,6 @@ $(document).ready(function () {
     setValueAndLog('info', '#information', "NO ATTENDEES");
     setValueAndLog('locations', '#locations', "NO LOCATIONS");
     setValueAndLog('preEvent', '#preevent', "NO PRE EVENT");
+    setValueAndLog('type', '#type', "NO TYPE");
 
 });
