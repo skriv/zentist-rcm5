@@ -18,7 +18,6 @@ let attendeesActivity;
 // Создаем переменную с нужным форматом
 let formattedData;
 
-
 var buttonInOnlineForm = ONLINE.find(
   'a[data-node-type="commerce-buy-now-button"]'
 );
@@ -30,10 +29,17 @@ ticketName();
 
 $(document).ready(function () {
   console.log("RCM5 is ready");
+
+  const input = $("#locations");
+  if (input.length) {
+    input.on("wheel", function (event) {
+      event.preventDefault();
+    });
+  }
+
   addAttendeeRows(1); // Добавляем одну строку при загрузке страницы
   countdown();
 });
-
 
 //
 // ----------- PLAYERS ----------- //
@@ -165,78 +171,25 @@ function addAttendeeRows(quantity) {
   }
 }
 
-//
-// ----------- COLLECT ATTENDEES DATA ----------- //
-//
-// TEST.click(function () {
-//   collectAttendeeData();
-//   console.log(allAttendeeData);
-// });
 
-function collectAttendeeData(){
-  let attendeeData = []; 
+function collectAttendeeData() {
+  let attendeeData = [];
 
   $(".attendee-row").each(function () {
     const name = $(this).find("input[type='text']").val();
     const email = $(this).find("input[type='email']").val();
     const phone = $(this).find("input[type='phone']").val();
-    
+
     // Добавляем данные в массив
     attendeeData.push(`${name}, ${email}, ${phone}`);
   });
-  
 
-  attendeesActivity = $("#pre-bootcamp-activity").is(':checked');
+  attendeesActivity = $("#pre-bootcamp-activity").is(":checked");
   organizationName = $("#Organization").val();
   DSOcount = $("#locations").val();
   allAttendeeData = attendeeData.join("\n"); // Используем "\n---\n" как разделитель
 }
 
-
-//
-// ----------- SELECT TYPE OF CATEGORY  ----------- //
-//
-// $("input[name='Radio']").change(function () {
-//   selectedValue = $("input[name='Radio']:checked").val();
-//   var isDSO = selectedValue === "DSO/Dental Group";
-//   var isVendor = selectedValue === "Vendor";
-//   var isOther = selectedValue === "Other";
-//   var isSponsor = selectedValue === "Sponsor";
-
-//   // Hide elements and reset properties
-//   $(".other-wrapper, #other-dso, #select-sponsor, #locationswrapper").hide();
-
-//   selectSponsorWrapper.hide();
-//   otherWrapper.hide()
-//   locationsWrapper.hide();
-
-//   otherDSO.prop("required", false);
-//   selectSponsor.prop("required", false);
-//   locations.prop("required", false);
-
-//   // Handle specific cases
-//   if (isOther) {
-//     otherWrapper.show();
-//     otherDSO.show();
-//     otherDSO.prop("required", true).focus();
-//   }
-//   if (isSponsor) {
-//     selectSponsorWrapper.show();
-//     selectSponsor.show();
-//     selectSponsor.prop("required", true).focus();
-//   }
-//   if (isDSO){
-//     locationsWrapper.show();
-//     locations.show();
-//     locations.prop("required", true).focus();
-//   }
-
-//   if (isDSO || isSponsor) {
-//     dsoSelect = true;
-//   } else {
-//     dsoSelect = false;
-//   }
-// });
 
 // Обновляем строки при изменении значения поля ввода
 $(".rcm-4-quantity").on("input", function () {
@@ -262,25 +215,17 @@ form.on("submit", function (event) {
   setCookies();
 });
 
-// 
-// SUBMIT VENDOR FORM
-// 
-// let vendorform = $(".vendor");
-// vendorform.on("submit", function (event) {
-//   event.preventDefault();
-//   console.log("Vendor Form Sent")
-// });
 
 //
 // ----------- SET COOKIES  ----------- //
 //
-function setCookies(){
+function setCookies() {
   const cookieData = {
     org: organizationName,
     locations: DSOcount,
     info: allAttendeeData,
-    preEvent:attendeesActivity,
-    type:selectedValue
+    preEvent: attendeesActivity,
+    type: selectedValue,
   };
 
   for (const [key, value] of Object.entries(cookieData)) {
@@ -331,26 +276,24 @@ function countdown() {
   updateCountdown();
 }
 
-// 
+//
 // SELECT TYPE of CUSTOMER
-// 
+//
 function handleSeparateRadioSelection() {
   // Получаем выбранное значение из отдельной группы радиокнопок
-  const selectedValue = $("input[name='type']:checked").attr("id");
-
+  const selectType = $("input[name='type']:checked").val();
   // Проверяем выбранное значение и выводим в консоль
-  if (selectedValue === "dso") {
+  if (selectType === "DSO/Dental Group") {
     $(".paymentform-wrapper").show();
     $(".vendor-form").hide();
-    console.log("Выбран Vendor");
-  } else if (selectedValue === "ven") {
-    $(".vendor-form").show()
-    $(".paymentform-wrapper").hide()
-    console.log("Выбран Vendor");
+  } else if (selectType === "Vendor") {
+    $(".vendor-form").show();
+    $(".paymentform-wrapper").hide();
   }
+
+  selectedValue = selectType;
+  console.log(selectedValue);
 }
 
 // Привязываем функцию к событию изменения радиокнопок отдельной группы
 $("input[name='type']").change(handleSeparateRadioSelection);
-
-
