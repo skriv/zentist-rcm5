@@ -1,5 +1,5 @@
 console.log("Hello RCM 5 - v3");
-const eventDate = new Date("September 13, 2025"); // target date
+const eventDate = new Date("October 11, 2025"); // target date
 const ONLINE = $('form[data-commerce-product-id="6778a1eeed0c7c259255aac4"]');
 const CAMPUS = $('form[data-commerce-product-id="6778a1a71ac6cc156adc2e47"]');
 // const TEST = $('#test-btn');
