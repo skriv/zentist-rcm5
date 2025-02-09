@@ -16,5 +16,5 @@ $(document).ready(function () {
     setValueAndLog('locations', '#locations', "NO LOCATIONS");
     setValueAndLog('preEvent', '#preevent', "NO PRE EVENT");
     setValueAndLog('type', '#type', "NO TYPE");
-
+    setValueAndLog('utm', '#utms', "NO UTMs")
 });
