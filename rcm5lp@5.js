@@ -233,7 +233,7 @@ function collectUTMs() {
 
   // Прямо объединяем значения без фильтрации
   allUTMs = Object.entries(allUTMs)
-    .map(([key, value]) => `${key}:${value}`)
+    .map(([key, value]) => `${key}: ${value}`)
     .join(", "); // Используем join для объединения значений
 
   console.log('UTMs: ')
