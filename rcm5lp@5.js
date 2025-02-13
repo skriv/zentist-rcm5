@@ -1,5 +1,6 @@
 console.log("Hello RCM 5 - v5");
 const eventDate = new Date("October 11, 2025"); // target date
+const discountFinishDate = new Date("February 28, 2025"); // Discount date
 const ONLINE = $('form[data-commerce-product-id="6778a1eeed0c7c259255aac4"]');
 const CAMPUS = $('form[data-commerce-product-id="6778a1a71ac6cc156adc2e47"]');
 // const TEST = $('#test-btn');
@@ -28,6 +29,7 @@ var buttonInCampusForm = CAMPUS.find(
 
 ticketName();
 
+
 $(document).ready(function () {
   console.log("RCM5 is ready");
 
@@ -40,6 +42,7 @@ $(document).ready(function () {
 
   addAttendeeRows(1); // Добавляем одну строку при загрузке страницы
   countdown();
+  discountDate();
 });
 
 //
@@ -324,3 +327,14 @@ function handleSeparateRadioSelection() {
 
 // Привязываем функцию к событию изменения радиокнопок отдельной группы
 $("input[name='type']").change(handleSeparateRadioSelection);
+
+//
+// ----------- HIDE DISCOUTN PROMO CODE ----------- //
+//
+function discountDate(){
+  const currentDate = new Date();
+
+  if (currentDate > discountFinishDate) {
+    $(".discount-code").hide(); 
+  }
+}
