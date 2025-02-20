@@ -33,6 +33,15 @@ ticketName();
 $(document).ready(function () {
   console.log("RCM5 is ready");
 
+  // Скрываем элемент с атрибутом plan="online"
+  $('[plan="online"]').hide();
+  
+  // Проверяем наличие переменной ?online в URL
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('online')) {
+    $('[plan="online"]').show(); // Показываем элемент, если переменная есть
+  }
+
   const input = $("#locations");
   if (input.length) {
     input.on("wheel", function (event) {
@@ -43,6 +52,12 @@ $(document).ready(function () {
   addAttendeeRows(1); // Добавляем одну строку при загрузке страницы
   countdown();
   discountDate();
+
+// 
+
+
+
+
 });
 
 //
