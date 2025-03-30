@@ -184,7 +184,7 @@ function addAttendeeRows(quantity) {
             <input type='text' class='form-text-rcm4 white w-input' maxlength='256' name='Attendee ${i}' data-name='Attendee Name ${i}' placeholder='Name' id='attendee ${i}' required>
             <input type='email' class='form-text-rcm4 white w-input' maxlength='256' name='email ${i}' data-name='Attendee Email ${i}' placeholder='Email' id='email ${i}' required>
             <input type='phone' class='form-text-rcm4 white w-input' maxlength='256' name='phone ${i}' data-name='Attendee Phone ${i}' placeholder='Phone' id='phone ${i}' required>
-            <input type='text' class='form-text-rcm4 white w-input' maxlength='256' name='Dietary ${i}' data-name='Dietary restrictions ${i}' placeholder='Dietary restrictions...' id='dietary ${i}'>
+            <input type='text' class='form-text-rcm4 white w-input' maxlength='256' name='dietary ${i}' data-name='Dietary restrictions ${i}' placeholder='Dietary restrictions...' id='dietary ${i}'>
         </div>`;
       $(".add-info").append(str);
     }
@@ -196,18 +196,19 @@ function collectAttendeeData() {
   let attendeeData = [];
 
   $(".attendee-row").each(function () {
-    const name = $(this).find("input[type='text']").val();
+    const name = $(this).find("input[name^='Attendee']").val();
     const email = $(this).find("input[type='email']").val();
     const phone = $(this).find("input[type='phone']").val();
+    const dietary = $(this).find("input[name^='dietary']").val();
 
     // Добавляем данные в массив
-    attendeeData.push(`${name}, ${email}, ${phone}`);
+    attendeeData.push(`${name}, ${email}, ${phone}, ${dietary}`);
   });
 
   attendeesActivity = $("#pre-bootcamp-activity").is(":checked");
   organizationName = $("#Organization").val();
   DSOcount = $("#locations").val();
-  allAttendeeData = attendeeData.join("\n"); // Используем "\n---\n" как разделитель
+  allAttendeeData = attendeeData.join("\n");
 }
 
 
