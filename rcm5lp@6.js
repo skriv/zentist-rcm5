@@ -79,7 +79,7 @@ function changeSchedule(){
     day2.detach();
     
     // Insert day2 at the 5th position (index 4)
-    scheduleList.children().eq(6).after(day2);
+    scheduleList.children().eq(8).after(day2);
   }
   
   // Cache selector for meal items
