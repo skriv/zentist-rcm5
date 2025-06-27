@@ -1,4 +1,4 @@
-console.log("Hello RCM 5 - v6");
+console.log("Hello RCM 5 - v7");
 const eventDate = new Date("October 11, 2025"); // target date
 const discountFinishDate = new Date("February 28, 2025"); // Discount date
 const ONLINE = $('form[data-commerce-product-id="6778a1eeed0c7c259255aac4"]');
@@ -6,6 +6,7 @@ const CAMPUS = $('form[data-commerce-product-id="6778a1a71ac6cc156adc2e47"]');
 // const TEST = $('#test-btn');
 
 let swiper;
+let swPart;
 let typeTicket = $("input[name='Type']");
 let campusSelect = true;
 let dsoSelect = true;
@@ -56,6 +57,8 @@ $(document).ready(function () {
   discountDate();
 
   changeSchedule();
+
+  viewPreviousSpeakers();
 
 // 
 
@@ -391,5 +394,62 @@ function discountDate(){
 
   if (currentDate > discountFinishDate) {
     $(".discount-code").hide(); 
+  }
+}
+
+
+// VIEW PREVIOUS SPEAKERS
+//
+function viewPreviousSpeakers() {
+  console.log("viewPreviousSpeakers");
+  let sliderTrigger = document.querySelector(".sw.part");
+  
+  if (sliderTrigger) {
+    console.log("Swiper element found, initializing...");
+    console.log("Element:", sliderTrigger);
+    console.log("Children count:", sliderTrigger.children.length);
+    
+    // Проверяем структуру Swiper
+    const wrapper = sliderTrigger.querySelector('.swiper-wrapper');
+    const slides = sliderTrigger.querySelectorAll('.swiper-slide');
+    console.log("Wrapper found:", !!wrapper);
+    console.log("Slides found:", slides.length);
+    
+    try {
+      swPart = new Swiper(sliderTrigger, {
+      grabCursor: true,
+      speed: 800,
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      slideToClickedSlide: true,
+      centeredSlides: true,
+      slidesPerView: 5,
+      spaceBetween: 16,
+      mousewheel: {
+        enabled: true,
+        forceToAxis: true,
+      },
+      breakpoints: {
+        480: {
+          spaceBetween: 16,
+          slidesPerView: 2.5,
+        },
+        767: {
+          spaceBetween: 16,
+          slidesPerView: "auto",
+        },
+      },
+    });
+    
+      console.log("Swiper initialized:", swPart);
+      console.log("Slides count:", swPart.slides ? swPart.slides.length : "No slides found");
+    } catch (error) {
+      console.error("Error initializing Swiper:", error);
+    }
+  } else {
+    console.log("Swiper element '.sw.part' not found!");
   }
 }
