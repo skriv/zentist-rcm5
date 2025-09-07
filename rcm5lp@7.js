@@ -77,7 +77,7 @@ function changeSchedule(){
   const items = scheduleList.children();
   
   // Check if day2 element exists and scheduleList has at least 5 items
-  if(day2.length && items.length >= 5) {
+  if(day2.length && items.length >= 4) {
     // Remove day2 from its current position
     day2.detach();
     
