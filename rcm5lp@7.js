@@ -77,12 +77,12 @@ function changeSchedule(){
   const items = scheduleList.children();
   
   // Check if day2 element exists and scheduleList has at least 5 items
-  if(day2.length && items.length >= 4) {
+  if(day2.length && items.length >= 5) {
     // Remove day2 from its current position
     day2.detach();
     
     // Insert day2 at the 5th position (index 4)
-    scheduleList.children().eq(8).after(day2);
+    scheduleList.children().eq(7).after(day2);
   }
   
   // Cache selector for meal items
