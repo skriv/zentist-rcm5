@@ -1,4 +1,4 @@
-console.log("Hello RCM 5 - v7.01");
+console.log("Hello RCM 5 - v7.0333");
 const eventDate = new Date("October 11, 2025"); // target date
 const discountFinishDate = new Date("February 28, 2025"); // Discount date
 const ONLINE = $('form[data-commerce-product-id="6778a1eeed0c7c259255aac4"]');
@@ -72,6 +72,7 @@ $(document).ready(function () {
 //
 function changeSchedule(){
   const day2 = $("#day2-title");
+  const dinner = $("#dinner");
   
   // Get all children of scheduleList
   const items = scheduleList.children();
@@ -80,9 +81,12 @@ function changeSchedule(){
   if(day2.length && items.length >= 5) {
     // Remove day2 from its current position
     day2.detach();
+    dinner.detach();
     
     // Insert day2 at the position
+    scheduleList.children().eq(7).after(dinner);
     scheduleList.children().eq(8).after(day2);
+    
   }
   
   // Cache selector for meal items
