@@ -347,6 +347,16 @@ function countdown() {
 
     let remainingTime = eventTime - currentTime;
 
+    // Проверяем, не закончилось ли время
+    if (remainingTime <= 0) {
+      // Устанавливаем все значения в 0 и останавливаем таймер
+      $("#days").text(0);
+      $("#hours").text(0);
+      $("#minutes").text(0);
+      $("#seconds").text(0);
+      return; // Останавливаем выполнение функции
+    }
+
     let seconds = Math.floor(remainingTime / 1000);
     let minutes = Math.floor(seconds / 60);
     let hours = Math.floor(minutes / 60);
