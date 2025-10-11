@@ -1,4 +1,4 @@
-console.log("Hello RCM 5 - v7.0333");
+console.log("Hello RCM 5 - v7.0444");
 const eventDate = new Date("October 11, 2025"); // target date
 const discountFinishDate = new Date("February 28, 2025"); // Discount date
 const ONLINE = $('form[data-commerce-product-id="6778a1eeed0c7c259255aac4"]');
@@ -84,8 +84,10 @@ function changeSchedule(){
     dinner.detach();
     
     // Insert day2 at the position
-    scheduleList.children().eq(7).after(dinner);
+    
     scheduleList.children().eq(6).after(day2);
+    scheduleList.children().eq(6).after(dinner);
+
     
   }
   
