@@ -335,7 +335,7 @@ function countdown() {
 
   // Function to add leading zero
   function addLeadingZero(number) {
-    return number < 10 ? "0" + number : number;
+    return number;
   }
 
   // Function to update the countdown
