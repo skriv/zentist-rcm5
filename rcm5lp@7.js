@@ -84,8 +84,8 @@ function changeSchedule(){
     dinner.detach();
     
     // Insert day2 at the position
-    scheduleList.children().eq(6).after(dinner);
-    scheduleList.children().eq(5).after(day2);
+    scheduleList.children().eq(7).after(dinner);
+    scheduleList.children().eq(6).after(day2);
     
   }
   
