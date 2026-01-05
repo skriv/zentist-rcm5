@@ -1032,8 +1032,6 @@ function initStatPeriodSwitching({ defaultPeriod = "RCM1", root = document } = {
 }
 
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   initFooterParallax();
   initCountdown();
