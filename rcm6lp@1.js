@@ -880,35 +880,35 @@ function initImageCycle() {
 // Example backend-friendly stats JSON (key-value)
 const RCM_STATS = {
   RCM1: {
-    attendees: 111,
-    speakers: 20,
-    sponsors: 30,
-    unique_dsos: 40,
-    total_practices: 50
+    attendees: 30,
+    speakers: 0,
+    sponsors: 0,
+    unique_dsos: 0,
+    total_practices: 0
   },
   RCM2: {
-    attendees: 222,
-    speakers: 23,
-    sponsors: 20,
-    unique_dsos: 78,
-    total_practices: 5125
+    attendees: 133,
+    speakers: 31,
+    sponsors: 11,
+    unique_dsos: 0,
+    total_practices: 0
   },
   RCM3: {
-    attendees: 333,
-    speakers: 23,
-    sponsors: 20,
-    unique_dsos: 78,
-    total_practices: 5125
+    attendees: 158,
+    speakers: 29,
+    sponsors: 16,
+    unique_dsos: 0,
+    total_practices: 0
   },
   RCM4: {
-    attendees: 444,
-    speakers: 23,
+    attendees: 234,
+    speakers: 26,
     sponsors: 20,
-    unique_dsos: 78,
-    total_practices: 5125
+    unique_dsos: 80,
+    total_practices: 5598
   },
   RCM5: {
-    attendees: 555,
+    attendees: 241,
     speakers: 23,
     sponsors: 20,
     unique_dsos: 78,
