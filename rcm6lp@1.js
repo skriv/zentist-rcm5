@@ -825,7 +825,7 @@ const RCM_STATS = {
     sponsors: 0,
     unique_dsos: 0,
     total_practices: 0,
-    online_attendees: 0
+    online_attendees: 26
   },
   RCM2: {
     attendees: 133,
@@ -833,7 +833,7 @@ const RCM_STATS = {
     sponsors: 11,
     unique_dsos: 0,
     total_practices: 0,
-    online_attendees: 0
+    online_attendees: 15
   },
   RCM3: {
     attendees: 158,
@@ -841,7 +841,7 @@ const RCM_STATS = {
     sponsors: 16,
     unique_dsos: 0,
     total_practices: 0,
-    online_attendees: 0
+    online_attendees: 36
   },
   RCM4: {
     attendees: 234,
@@ -849,7 +849,7 @@ const RCM_STATS = {
     sponsors: 20,
     unique_dsos: 80,
     total_practices: 5598,
-    online_attendees: 0
+    online_attendees: 48
   },
   RCM5: {
     attendees: 241,
@@ -857,7 +857,7 @@ const RCM_STATS = {
     sponsors: 20,
     unique_dsos: 78,
     total_practices: 5125,
-    online_attendees: 0
+    online_attendees: 30
   }
 };
 
