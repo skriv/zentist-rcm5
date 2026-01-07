@@ -824,43 +824,47 @@ const RCM_STATS = {
     speakers: 0,
     sponsors: 0,
     unique_dsos: 0,
-    total_practices: 0
+    total_practices: 0,
+    online_attendees: 0
   },
   RCM2: {
     attendees: 133,
     speakers: 31,
     sponsors: 11,
     unique_dsos: 0,
-    total_practices: 0
+    total_practices: 0,
+    online_attendees: 0
   },
   RCM3: {
     attendees: 158,
     speakers: 29,
     sponsors: 16,
     unique_dsos: 0,
-    total_practices: 0
+    total_practices: 0,
+    online_attendees: 0
   },
   RCM4: {
     attendees: 234,
     speakers: 26,
     sponsors: 20,
     unique_dsos: 80,
-    total_practices: 5598
+    total_practices: 5598,
+    online_attendees: 0
   },
   RCM5: {
     attendees: 241,
     speakers: 23,
     sponsors: 20,
     unique_dsos: 78,
-    total_practices: 5125
+    total_practices: 5125,
+    online_attendees: 0
   }
 };
 
 
 function enrichDerivedStats(stats) {
   return {
-    ...stats,
-    avg_practices_per_dso: stats.unique_dsos > 0 ? stats.total_practices / stats.unique_dsos : 0
+    ...stats
   };
 }
 
