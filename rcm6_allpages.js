@@ -1,0 +1,1 @@
+console.log("rcm6_allpages.js loaded");
