@@ -993,7 +993,7 @@ function renderStatsFromJson({ groupId = "RCM1", root = document } = {}) {
       const value = stats[key];
 
       // Set opacity to 0.3 if value is 0
-      el.style.opacity = value === 0 ? "0.3" : "1";
+      el.style.opacity = value === 0 ? "0.15" : "1";
 
       // Initialize NumberFlow once per element, then just update
       const flow = ensureNumberFlow(el, value);
