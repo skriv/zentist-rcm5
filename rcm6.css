@@ -1,22 +1,6 @@
 /* Note: Both of the sets of CSS are not needed for the parallax effect */
 
 
-/* ------------------------- Pointer Cursors -------------------------  */
-
-.rcm-plan4-wrapper,
-.cover,
-[data-stat-period],
-[data-accordion-toggle],
-[data-button-animate-chars],
-[data-swiper-prev],
-[data-swiper-next],
-[data-draggable-marquee-init] {
-  cursor: pointer;
-}
-
-[data-draggable-marquee-init]:active {
-  cursor: grabbing;
-}
 
 
 
