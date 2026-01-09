@@ -821,26 +821,26 @@ function initImageCycle() {
 const RCM_STATS = {
   RCM1: {
     attendees: 30,
-    speakers: 0,
+    speakers: 10,
     sponsors: 0,
-    unique_dsos: 0,
-    total_practices: 0,
+    unique_dsos: 14,
+    total_practices: 241,
     online_attendees: 26
   },
   RCM2: {
     attendees: 133,
-    speakers: 31,
+    speakers: 13,
     sponsors: 11,
-    unique_dsos: 0,
-    total_practices: 0,
+    unique_dsos: 44,
+    total_practices: 1321,
     online_attendees: 15
   },
   RCM3: {
     attendees: 158,
     speakers: 29,
     sponsors: 16,
-    unique_dsos: 0,
-    total_practices: 0,
+    unique_dsos: 64,
+    total_practices: 3193,
     online_attendees: 36
   },
   RCM4: {
