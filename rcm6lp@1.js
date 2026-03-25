@@ -1,4 +1,4 @@
-console.log("Hello RCM 6 - v2");
+console.log("Hello RCM 6 - v3");
 const eventDate = new Date("August 30, 2026"); // target date
 const discountFinishDate = new Date("February 28, 2025"); // Discount date
 const ONLINE = $('form[data-commerce-product-id="6778a1eeed0c7c259255aac4"]');
