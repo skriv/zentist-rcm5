@@ -1,4 +1,4 @@
-console.log("Hello RCM 6 - v1");
+console.log("Hello RCM 6 - v2");
 const eventDate = new Date("August 30, 2026"); // target date
 const discountFinishDate = new Date("February 28, 2025"); // Discount date
 const ONLINE = $('form[data-commerce-product-id="6778a1eeed0c7c259255aac4"]');
@@ -35,15 +35,6 @@ ticketName();
 
 $(document).ready(function () {
   console.log("RCM5 is ready");
-
-  // // Скрываем элемент с атрибутом plan="online"
-  // $('[plan="online"]').hide();
-  
-  // Проверяем наличие переменной ?online в URL
-  // const urlParams = new URLSearchParams(window.location.search);
-  // if (urlParams.has('online')) {
-  //   $('[plan="online"]').show(); // Показываем элемент, если переменная есть
-  // }
 
   const input = $("#locations");
   if (input.length) {
@@ -153,48 +144,6 @@ $(".cover").each(function (index) {
   });
 });
 
-//
-// ----------- SWIPER SLIDER ----------- //
-//
-// $(".slider-main_component").each(function () {
-//   let sliderDuration = +$(this).attr("slider-duration") || 300; // Упрощение
-//   swiper = new Swiper($(this).find(".swiper")[0], {
-//     speed: sliderDuration,
-//     loop: false,
-//     autoHeight: false,
-//     followFinger: false,
-//     freeMode: false,
-//     slideToClickedSlide: false,
-//     slidesPerView: 1,
-//     spaceBetween: "4%",
-//     rewind: false,
-//     mousewheel: false,
-//     keyboard: {
-//       enabled: true,
-//       onlyInViewport: true,
-//     },
-//     breakpoints: {
-//       480: { slidesPerView: 1, spaceBetween: "4%" },
-//       768: { slidesPerView: 2, spaceBetween: "4%" },
-//       992: { slidesPerView: 1.5, spaceBetween: 32 },
-//     },
-//     navigation: {
-//       nextEl: $(this).find(".swiper-next")[0],
-//       prevEl: $(this).find(".swiper-prev")[0],
-//       disabledClass: "is-disabled",
-//     },
-//     slideActiveClass: "is-active",
-//     slideDuplicateActiveClass: "is-active",
-//     initialSlide: 1,
-//     centeredSlides: true,
-//   });
-
-//   $(this)
-//     .find(".swiper-slide")
-//     .on("click", function () {
-//       swiper.slideTo($(this).index());
-//     });
-// });
 
 //
 // ----------- SELECT PAYMENT PLAN OPTIONS ----------- //
@@ -248,15 +197,17 @@ function collectAttendeeData() {
     const phone = $(this).find("input[type='phone']").val();
     const title = $(this).find("input[name^='title']").val();
     const dietary = $(this).find("input[name^='dietary']").val();
-
+    
     // Добавляем данные в массив
     attendeeData.push(`${name}, ${email}, ${phone}, ${title}, ${dietary}`);
   });
 
-  // attendeesActivity = $("#pre-bootcamp-activity").is(":checked");
+  attendeesActivity = $("#pre-bootcamp-activity").is(":checked");
   organizationName = $("#Organization").val();
   DSOcount = $("#locations").val();
   allAttendeeData = attendeeData.join("\n");
+  selectedValue = typeTicket.val();
+  console.log("Тип покупки:", selectedValue);
 }
 
 
@@ -328,80 +279,6 @@ function setCookies() {
   }
 }
 
-//
-// ----------- COUNTDOWN  ----------- //
-//
-// function countdown() {
-//   console.log("countdown");
-
-//   // Function to add leading zero
-//   function addLeadingZero(number) {
-//     return number;
-//   }
-
-//   // Function to update the countdown
-//   function updateCountdown() {
-//     let now = new Date(); // current date and time
-
-//     let currentTime = now.getTime();
-//     let eventTime = eventDate.getTime();
-
-//     let remainingTime = eventTime - currentTime;
-
-//     // Проверяем, не закончилось ли время
-//     if (remainingTime <= 0) {
-//       // Устанавливаем все значения в 0 и останавливаем таймер
-//       $("#days").text(0);
-//       $("#hours").text(0);
-//       $("#minutes").text(0);
-//       $("#seconds").text(0);
-//       return; // Останавливаем выполнение функции
-//     }
-
-//     let seconds = Math.floor(remainingTime / 1000);
-//     let minutes = Math.floor(seconds / 60);
-//     let hours = Math.floor(minutes / 60);
-//     let days = Math.floor(hours / 24);
-
-//     hours %= 24;
-//     minutes %= 60;
-//     seconds %= 60;
-
-//     // Update the elements with the calculated and formatted time
-//     $("#days").text(addLeadingZero(days));
-//     $("#hours").text(addLeadingZero(hours));
-//     $("#minutes").text(addLeadingZero(minutes));
-//     $("#seconds").text(addLeadingZero(seconds)); // Update seconds with leading zero
-
-//     // Recursive call every second
-//     setTimeout(updateCountdown, 1000);
-//   }
-
-//   // Initial call to start the countdown
-//   updateCountdown();
-// }
-
-//
-// SELECT TYPE of CUSTOMER
-//
-// function handleSeparateRadioSelection() {
-//   // Получаем выбранное значение из отдельной группы радиокнопок
-//   const selectType = $("input[name='type']:checked").val();
-//   // Проверяем выбранное значение и выводим в консоль
-//   if (selectType === "DSO/Dental Group") {
-//     $(".paymentform-wrapper").show();
-//     $(".vendor-form").hide();
-//   } else if (selectType === "Vendor") {
-//     $(".vendor-form").show();
-//     $(".paymentform-wrapper").hide();
-//   }
-
-//   selectedValue = selectType;
-//   console.log(selectedValue);
-// }
-
-// Привязываем функцию к событию изменения радиокнопок отдельной группы
-// $("input[name='type']").change(handleSeparateRadioSelection);
 
 //
 // ----------- HIDE DISCOUTN PROMO CODE ----------- //
@@ -470,22 +347,6 @@ function viewPreviousSpeakers() {
     console.log("Swiper element '.sw.part' not found!");
   }
 }
-
-// // Create an Intersection Observer to log when #pricing is in view
-// const pricingSection = document.getElementById('pricing');
-
-// if (pricingSection) {
-//   const stickyBtn = document.getElementById('sticky-btn');
-//   const observer = new IntersectionObserver((entries) => {
-//     entries.forEach(entry => {
-//       const isVisible = entry.isIntersecting;
-//       console.log(`#pricing section is ${isVisible ? 'in' : 'not in'} view`);
-//       stickyBtn.style.display = isVisible ? 'none' : 'flex';
-//     });
-//   }, { threshold: 0.1 });
-
-//   observer.observe(pricingSection);
-// }
 
 
 

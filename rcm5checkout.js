@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    console.log("Hello RCM 6 - checkout");
 
     // Функция для установки значения в текстовое поле и логирования
     function setValueAndLog(cookieName, elementId, noValueMessage) {
