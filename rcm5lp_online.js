@@ -92,10 +92,9 @@ function collectAttendeeData() {
     const email = $(this).find("input[type='email']").val();
     const phone = $(this).find("input[type='phone']").val();
     const title = $(this).find("input[name^='title']").val();
-    const dietary = $(this).find("input[name^='dietary']").val();
 
     // Добавляем данные в массив
-    attendeeData.push(`${name}, ${email}, ${phone}, ${title}, ${dietary}`);
+    attendeeData.push(`${name}, ${email}, ${phone}, ${title}`);
   });
 
   attendeesActivity = $("#pre-bootcamp-activity").is(":checked");
